@@ -4,13 +4,18 @@
         <Nullable>enable</Nullable>
         
         <Title>Neko Core Abstractions Library</Title>
+        
+        <Description>Core library for neko framework</Description>
     </PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
     <ItemGroup>
         <PackageReference Include="Flurl.Http" Version="4.0.1" />
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Features\" />
     </ItemGroup>
 </Project>
