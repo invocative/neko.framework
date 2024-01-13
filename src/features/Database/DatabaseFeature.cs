@@ -14,7 +14,7 @@ public record DatabaseFeature<T>(Action<IDatabaseAdapter> Setup, IAppCreationCon
         => webBuilder.Services.AddDbContext<T>(x => this.Setup(new DatabaseAdapter(x, BuildContext)));
 
     public override void BeforeRun(WebApplication webBuilder)
-        => webBuilder.WarpUp<T>();
+        => webBuilder.WarmUp<T>();
 
     public void HealthCheckRegistration(IHealthChecksBuilder builder)
         => builder.AddCheck<DbHealthCheck>("db", HealthStatus.Degraded, new[] { "database" });
