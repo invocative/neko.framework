@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Logging provider feature for Neko Web Application</Title>
+		<AssemblyName>Invocative.Neko.Feature.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>Invocative.Neko.Feature.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\core\Invocative.Neko.Framework.csproj" />
+	</ItemGroup>
+
+</Project>

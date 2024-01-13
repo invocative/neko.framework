@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Authorization Feature for Neko Web Application</Title>
+		<AssemblyName>Invocative.Neko.Feature.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>Invocative.Neko.Feature.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\core\Invocative.Neko.Framework.csproj" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(LibNetSharedVersion)" />
+	</ItemGroup>
+
+</Project>

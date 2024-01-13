@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Title>Database Feature for Neko Web Application</Title>
+		<AssemblyName>Invocative.Neko.Feature.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>Invocative.Neko.Feature.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\core\Invocative.Neko.Framework.csproj" />
+
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="$(LibNetSharedVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="$(LibNetSharedVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="$(LibNetSharedVersion)" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="$(LibNetSharedVersion)">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+</Project>

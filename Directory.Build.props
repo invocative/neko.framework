@@ -1,0 +1,28 @@
+<Project>
+    <PropertyGroup>
+		<TargetFrameworks>net8.0</TargetFrameworks>
+		<Version>1.0-rc.2</Version>
+        <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+        <Deterministic>true</Deterministic>
+        <Features>strict</Features>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Authors>Yuuki Wesp</Authors>
+        <Company>Invocative Studio</Company>
+        <Copyright>(C) 2024 Invocative Studio</Copyright>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<LibNetSharedVersion>6.0.*</LibNetSharedVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<LibNetSharedVersion>7.0.*</LibNetSharedVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<LibNetSharedVersion>8.0.*</LibNetSharedVersion>
+	</PropertyGroup>
+</Project>
