@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Database npgsql provider feature for Neko Web Application</Title>
+		<AssemblyName>Invocative.Neko.Feature.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>Invocative.Neko.Feature.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\core\Invocative.Neko.Framework.csproj" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(LibNetSharedVersion)" />
+	</ItemGroup>
+</Project>

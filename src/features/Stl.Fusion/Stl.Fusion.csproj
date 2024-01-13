@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Title>Stl.Fusion Feature for Neko Web Application</Title>
+		<AssemblyName>Invocative.Neko.Feature.$(MSBuildProjectName)</AssemblyName>
+		<RootNamespace>Invocative.Neko.Feature.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Stl.Fusion.EntityFramework" Version="6.8.11" />
+	  <PackageReference Include="Stl.Fusion.Server" Version="6.8.11" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\WebSocket\WebSocket.csproj" />
+	</ItemGroup>
+
+</Project>
