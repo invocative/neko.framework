@@ -16,6 +16,7 @@ public record HangFireFeature(Action<IGlobalConfiguration, IAppCreationContext> 
             x.UseConsole();
             Config(x, Context);
         });
+        webBuilder.Services.AddHangfireServer();
     }
 
     public override void BeforeRun(WebApplication webBuilder)

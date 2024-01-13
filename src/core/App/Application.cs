@@ -1,8 +1,10 @@
 ﻿namespace Invocative.Neko.Framework.App;
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Utils;
 
 public class Application
@@ -14,6 +16,7 @@ public interface IAppCreationContext
 {
     IAppServiceBuilder AppService { get; }
     WebApplicationBuilder AspBuilder { get; }
+    IWebHostEnvironment Environment { get; }
 }
 
 internal class AppBuilder : IAppBuilder, IAppCreationContext
@@ -70,6 +73,7 @@ internal class AppBuilder : IAppBuilder, IAppCreationContext
 
     IAppServiceBuilder IAppCreationContext.AppService => this._appServiceBuilder;
     WebApplicationBuilder IAppCreationContext.AspBuilder => this._aspBuilder;
+    IWebHostEnvironment IAppCreationContext.Environment => this._aspBuilder.Environment;
 }
 
 internal class AppInstance(List<IAppFeature> features, WebApplication app) : IApp
