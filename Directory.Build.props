@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
 		<TargetFrameworks>net8.0</TargetFrameworks>
-		<Version>1.0-rc.2</Version>
+		<Version>1.0-rc.3</Version>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <Deterministic>true</Deterministic>
         <Features>strict</Features>
@@ -13,8 +13,21 @@
         <Copyright>(C) 2024 Invocative Studio</Copyright>
         <IncludeSymbols>True</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
 
+	    <PackageProjectUrl>https://github.com/invocative/neko.framework</PackageProjectUrl>
+	    <RepositoryType>git</RepositoryType>
+	    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	    <PackageIcon>icon.png</PackageIcon>
+
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="icon.png">
+			<Pack>True</Pack>
+			<PackagePath>/</PackagePath>
+		</None>
+	</ItemGroup>
 
 	<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0'">
 		<LibNetSharedVersion>6.0.*</LibNetSharedVersion>

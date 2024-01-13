@@ -32,6 +32,6 @@ public record HangFireFeature(Action<IGlobalConfiguration, IAppCreationContext> 
 [PublicAPI]
 public static class HangFireFeatureIAppBuilder
 {
-    public static IAppBuilder WebSockets(this IAppBuilder builder, Action<IGlobalConfiguration, IAppCreationContext> config)
+    public static IAppBuilder HangFire(this IAppBuilder builder, Action<IGlobalConfiguration, IAppCreationContext> config)
         => builder.InjectFeature(x => new HangFireFeature(config, x));
 }
