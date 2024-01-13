@@ -10,7 +10,7 @@
 	<ItemGroup>
 		<None Include="..\..\icon.png">
 			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
+			<PackagePath>/</PackagePath>
 		</None>
 	</ItemGroup>
     <ItemGroup>
