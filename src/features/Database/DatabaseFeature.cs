@@ -7,11 +7,30 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
+public enum DatabaseSetupKind
+{
+    Classic,
+    Factory,
+    Pool,
+    FactoryPool
+}
+
 [PublicAPI]
-public record DatabaseFeature<T>(Action<IDatabaseAdapter> Setup, IAppCreationContext BuildContext) : AppFeature, IAppFeatureWithHealthCheck where T : DbContext
+public record DatabaseFeature<T>(Action<IDatabaseAdapter> Setup, IAppCreationContext BuildContext, DatabaseSetupKind Kind) : AppFeature, IAppFeatureWithHealthCheck where T : DbContext
 {
     public override void BeforeRegistrations(WebApplicationBuilder webBuilder)
-        => webBuilder.Services.AddDbContext<T>(x => this.Setup(new DatabaseAdapter(x, BuildContext)));
+    {
+        _ = this.Kind switch {
+            DatabaseSetupKind.Classic => webBuilder.Services.AddDbContext<T>(x =>
+                this.Setup(new DatabaseAdapter(x, this.BuildContext))),
+            DatabaseSetupKind.Factory => webBuilder.Services.AddDbContextFactory<T>(x =>
+                this.Setup(new DatabaseAdapter(x, this.BuildContext))),
+            DatabaseSetupKind.Pool => webBuilder.Services.AddDbContextPool<T>(x =>
+                this.Setup(new DatabaseAdapter(x, this.BuildContext))),
+            DatabaseSetupKind.FactoryPool => webBuilder.Services.AddPooledDbContextFactory<T>(x =>
+                this.Setup(new DatabaseAdapter(x, this.BuildContext)))
+        };
+    }
 
     public override void BeforeRun(WebApplication webBuilder)
         => webBuilder.WarmUp<T>();
