@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
 		<TargetFrameworks>net8.0</TargetFrameworks>
-		<Version>1.0-rc.6</Version>
+		<Version>1.0-rc.7</Version>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <Deterministic>true</Deterministic>
         <Features>strict</Features>
